@@ -1,0 +1,109 @@
+/* # # # # # # # # Tags # # # # # # # # */
+html {
+  background-image: url("/img/notflix_bg.png");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: rgba(0,0,0,0);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background-color:black;
+  bottom: 0;
+  color: white;
+  height: 60px;
+  line-height: 60px;
+  position: absolute;
+  width: 100%;
+}
+
+code {
+  font-size: 80%;
+}
+
+/* # # # # # # # Classes # # # # # # # */
+
+.banner-img {
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, .75);
+  color: white;
+  padding: 1em;
+  width: 75%;
+}
+
+.mini-padding {
+  padding: 2em;
+}
+
+.padding {
+  padding: 6em;
+}
+
+/* # # # # # # # # IDs # # # # # # # # */
+
+#nav-n {
+  width: 25px;
+  height: 40px;
+}
+
+#slideshow img {
+  float: left;
+  margin: 0 -100% 0 0;
+}
+
+#slideshow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#welcome-button {
+  border: 0;
+  line-height: 2;
+  padding: 0 20px;
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
+
+  width: 200px;
+  height: 100px;
+}
+
+#welcome-button:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+#welcome-page {
+  min-height: 100%;
+}
+
+#welcome-title {
+  height: 50%;
+  margin-top: 11.5em;
+  width: 50%;
+}

@@ -1,0 +1,7 @@
+{
+    "Settings": {
+      "dbConfig": {
+        "dbConnection": "mssql://heidi.lynch:power@ev-compsci-01.principia.local/heidi.lynch"
+      }
+    }
+  }
