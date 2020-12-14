@@ -25,9 +25,6 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/Genres/">Genres</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">My Account</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><%= movie.MovieName %></a>
               </li>
@@ -40,7 +37,21 @@
     <div class="mini-padding"></div>
     <img src="<%= movie.bannerURL %>" alt="" class="banner-img" />
     <main role="main" class="container">
-      <h3>Movies</h3>
+      <h3><%= movie.MovieName %></h3>
+      <table>
+        <tr><td>Director: </td><td><%= movie.Director %></td></tr>
+        <tr><td>Starring: </td><td><%= movie.Actors %></td></tr>
+        <tr><td>Length: </td><td><%= movie.LengthInMinutes %> min</td></tr>
+        <tr><td>Rating: </td><td><%= movie.Rating %>/10</td></tr>
+        <tr><td>Audio Languages: </td><td>English</td></tr>
+      </table>
+      <div>
+        <form action="/movie/<%= movie.MovieID %>" method="POST" name="navMovieSelect">
+          <button name="watch" value="true" type="submit" class="button">Watch</button>
+          <button name="trailer" value="true" type="submit" class="button" id="wtch-trlr">Watch Trailer</button>
+        </form>
+      </div>
+      <div class="mini-padding"></div>
     </main>
 
     <!-- Footer -->

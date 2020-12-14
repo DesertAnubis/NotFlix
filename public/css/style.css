@@ -36,6 +36,28 @@ code {
   min-width: 100%;
 }
 
+.button {
+  border: 0;
+  line-height: 2;
+  padding: 0 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
+
+  margin: 0.5em;
+  width: 125px;
+  height: 60px;
+}
+
 .center {
   text-align: center;
 }
@@ -55,6 +77,14 @@ code {
   padding: 6em;
 }
 
+.player {
+  position: absolute;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+}
+
 /* # # # # # # # # IDs # # # # # # # # */
 
 #nav-n {
@@ -71,6 +101,10 @@ code {
   content: "";
   display: table;
   clear: both;
+}
+
+#wtch-trlr {
+  width: 200px
 }
 
 #welcome-button {

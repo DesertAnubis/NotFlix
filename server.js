@@ -109,6 +109,61 @@ app.get('/movie/:id', async(req, res) => {
   }
 });
 
+// Watch movie or trailer
+app.post('/movie/:id', async(req, res) => {
+  if (typeof req.body.watch !== 'undefined' && req.body.watch === 'true') {
+    console.log("Watching movie");
+    res.redirect('/watch/' + sanitizer.sanitize(req.params.id));
+  } else if (typeof req.body.trailer !== 'undefined' && req.body.trailer === 'true') {
+    console.log("Watching trailer");
+    res.redirect('/trailer/' + sanitizer.sanitize(req.params.id));
+  }
+});
+
+/* # # # # # Watch Movie # # # # # */
+
+// Get Movie
+app.get('/watch/:id', async(req, res) => {
+  console.log("Navigating to /watch/" + req.params.id);
+  try {
+    const inputVal = sanitizer.sanitize(req.params.id);
+    const pool = await poolPromise;
+    const result = await pool.request()
+    .input('input_parameter', sql.Int, inputVal)
+      .query('EXEC MovieGetByID @input_parameter;');
+
+    // console.table(result.recordset);
+
+    res.render('public/watch', { movie: result.recordset[0] });
+  }
+  catch (err) {
+    res.status(500);
+    res.send(err.message);
+  }
+});
+
+/* # # # # # Watch Trailer # # # # # */
+
+// Get Trailer
+app.get('/trailer/:id', async(req, res) => {
+  console.log("Navigating to /trailer/" + req.params.id);
+  try {
+    const inputVal = sanitizer.sanitize(req.params.id);
+    const pool = await poolPromise;
+    const result = await pool.request()
+    .input('input_parameter', sql.Int, inputVal)
+      .query('EXEC MovieGetByID @input_parameter;');
+
+    // console.table(result.recordset);
+
+    res.render('public/trailer', { movie: result.recordset[0] });
+  }
+  catch (err) {
+    res.status(500);
+    res.send(err.message);
+  }
+});
+
 /* # # # # # Genres # # # # # */
 
 // Get Page
@@ -122,6 +177,26 @@ app.get('/Genres/', async(req, res) => {
     // console.table(result.recordset);
 
     res.render('public/Genres', { genres: result.recordset });
+  }
+  catch (err) {
+    res.status(500);
+    res.send(err.message);
+  }
+});
+
+// Get Page
+app.get('/genre/:id', async(req, res) => {
+  console.log("Navigating to /genre/" + req.params.id);
+  try {
+    const inputVal = sanitizer.sanitize(req.params.id);
+    const pool = await poolPromise;
+    const result = await pool.request()
+    .input('input_parameter', sql.Int, inputVal)
+      .query('EXEC GenreGetMovies @input_parameter;');
+
+    // console.table(result.recordset);
+
+    res.render('public/MovieSelect', { movies: result.recordset });
   }
   catch (err) {
     res.status(500);

@@ -25,9 +25,6 @@
               <li class="nav-item active">
                 <a class="nav-link" href="#">Genres <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">My Account</a>
-              </li>
             </ul>
           </div>
         </nav>
@@ -40,7 +37,7 @@
       <ul>
       <% genres.forEach(function(genre) { %>
         <li>
-          <a href = "/movie/<%= genre.GenreID %>"><%= genre.GenreName %></a>
+          <a href = "/genre/<%= genre.GenreID %>"><%= genre.GenreName %></a>
         </li>
       <% }); %>
       </ul>
